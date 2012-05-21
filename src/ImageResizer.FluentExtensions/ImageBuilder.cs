@@ -8,11 +8,6 @@ namespace ImageResizer.FluentExtensions
     public class ImageBuilder
     {
         private readonly NameValueCollection configuration = new NameValueCollection();
-
-        public ResizeExpression Resize()
-        {
-            return new ResizeExpression(this);
-        }
         
         public ImageBuilder Resize(Action<ResizeExpression> configure)
         {

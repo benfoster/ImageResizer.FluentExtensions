@@ -14,7 +14,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public TransformExpression AutoRotate()
         {
-            builder.SetParameter(TransformParameters.AutoRotate, true.ToString());
+            builder.SetParameter(TransformParameters.AutoRotate, true.ToString().ToLowerInvariant());
             return this;
         }
 

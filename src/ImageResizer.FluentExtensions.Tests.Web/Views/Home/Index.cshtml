@@ -4,8 +4,12 @@
     var builder = new ImageBuilder()
         .Resize(img => img.Dimensions(400, 300).Crop())
         .Transform(img => img.FlipAfter(FlipType.X))
-        .Style(img => img.PaddingWidth(10).PaddingColor("FF0066").Margin(20).BackgroundColor("000000"))
-        .Output(img => img.Quality(90).Format(OutputFormat.Png));
+        .Style(img => img.PaddingWidth(10)
+                            .PaddingColor("FF0066")
+                            .Margin(20)
+                            .BackgroundColor("000000"))
+        .Output(img => img.Quality(90)
+                            .Format(OutputFormat.Png));
         
 }
 <h2>Index</h2>
