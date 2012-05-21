@@ -10,7 +10,9 @@ The fluent API is based on the command structure found on the [ImageResizer Comm
 
 Using the querystring api:
 
-`/image.jpg?width=400&height=300&mode=crop&flip=x&paddingWidth=10&paddingColor=FF0066&margin=20&bgcolor=000000&quality=90&format=png`
+	/image.jpg?width=400&height=300&mode=crop _
+		&flip=x&paddingWidth=10&paddingColor=FF0066&margin=20&bgcolor=000000 _
+		&quality=90&format=png
 
 Using the fluent api mvc helper:
 
