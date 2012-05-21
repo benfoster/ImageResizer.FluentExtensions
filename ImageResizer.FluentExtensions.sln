@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions", "src\ImageResizer.FluentExtensions\ImageResizer.FluentExtensions.csproj", "{C3811C42-0118-443B-B0EB-FA82129B8C69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions.Tests", "src\ImageResizer.FluentExtensions.Tests\ImageResizer.FluentExtensions.Tests.csproj", "{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions.Tests.Web", "src\ImageResizer.FluentExtensions.Tests.Web\ImageResizer.FluentExtensions.Tests.Web.csproj", "{13B6E47F-26DE-431E-BAF7-35BAC532A98D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions.Mvc", "src\ImageResizer.FluentExtensions.Mvc\ImageResizer.FluentExtensions.Mvc.csproj", "{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3811C42-0118-443B-B0EB-FA82129B8C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3811C42-0118-443B-B0EB-FA82129B8C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3811C42-0118-443B-B0EB-FA82129B8C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3811C42-0118-443B-B0EB-FA82129B8C69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

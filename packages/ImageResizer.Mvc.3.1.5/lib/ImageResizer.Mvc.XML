@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ImageResizer.Mvc</name>
+    </assembly>
+    <members>
+        <member name="M:ImageResizer.Plugins.MvcRoutingShim.StopRoutingRoute.#ctor(System.String)">
+            <summary>
+            Creates a route that matches any request where context.Items[contextItemsFlag] is (non-null).
+            </summary>
+            <param name="contextItemsFlag"></param>
+        </member>
+        <member name="T:ImageResizer.Mvc.ImageRequestAction">
+            <summary>
+            This action result is NOT a replacement for the InterceptModule and MvcRoutingShim. It cannot hope to achieve the same performance, compatibility, or flexibility.
+            It does not support all the plugins, nor all the Pipeline events. 
+            It does not support the CloudFront, Image404, or ImageHandlerSyntax plugins.  RemoteReader, SqlReader, S3Reader, , Image404, ClientCache, 
+            It doesn't even work yet.
+            </summary>
+        </member>
+        <member name="M:ImageResizer.Mvc.ImageRequestAction.ExecuteVirtualPathResult(System.Web.Mvc.ControllerContext,System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="virtualPath"></param>
+            <param name="settings"></param>
+        </member>
+        <member name="M:ImageResizer.Mvc.ImageRequestAction.ExecuteVirtualFileResult(System.Web.HttpContext,System.String,System.Collections.Specialized.NameValueCollection,ImageResizer.Plugins.IVirtualFile)">
+            <summary>
+            
+            Generates the resized image to disk (if needed), then rewrites the request to that location.
+            Perform 404 checking before calling this method. Assumes file exists.
+            Called during PostAuthorizeRequest
+            </summary>
+            <param name="context"></param>
+            <param name="virtualPath"></param>
+            <param name="queryString"></param>
+            <param name="vf"></param>
+        </member>
+        <member name="P:ImageResizer.Mvc.ImageRequestAction.ReauthorizeFinalPath">
+            <summary>
+            If true, and if the app has Full Trust, the UrlAuthorizationModule will be run against the final virtual path before execution. Defaults to true.
+            Pipeline.AuthorizeImage will be fired regardless.
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Mvc.ImageRequestAction.Source">
+            <summary>
+            The source object (Bitmap, path, stream, IVirtualFile, etc..) for the image to process and/or cache and/or serve.
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Mvc.ImageRequestAction.Settings">
+            <summary>
+            The resizing/processing commands to apply.
+            </summary>
+        </member>
+    </members>
+</doc>

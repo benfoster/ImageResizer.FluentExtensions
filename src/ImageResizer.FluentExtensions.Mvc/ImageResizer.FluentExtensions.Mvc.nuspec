@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ImageResizer.FluentExtensions.Mvc</id>
+    <version>1.0.0.0</version>
+    <title>Image Resizer Fluent Extensions for ASP.NET MVC</title>
+    <authors>Ben Foster</authors>
+    <owners>Ben Foster</owners>
+    <projectUrl>http://ben.onfabrik.com/posts/image-resizer-fluent-extensions</projectUrl>
+    <description>ASP.NET MVC Html Helpers for generating Image Resizer HTTP api requests.</description>
+    <tags>ImageResizer ImageResizing.NET</tags>
+    <dependencies>
+      <dependency id="ImageResizer.FluentExtensions" version="1.0.0.0" />
+    </dependencies>
+  </metadata>
+</package>
