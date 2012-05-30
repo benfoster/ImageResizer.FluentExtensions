@@ -24,27 +24,21 @@ namespace ImageResizer.FluentExtensions.Mvc
             return MvcHtmlString.Create(img.ToString(TagRenderMode.SelfClosing));
         }
 
-        public static MvcHtmlString BuildImage(this HtmlHelper html, string src, Action<ImageBuilder> configure, string alternateText = "", object htmlAttributes = null)
+        public static MvcHtmlString BuildImage(this HtmlHelper html, string src, Action<ImageUrlBuilder> configure, string alternateText = "", object htmlAttributes = null)
         {
-            if (configure == null)
-                throw new ArgumentNullException("configure");
-
-            var builder = new ImageBuilder();
-            configure(builder);
-
-            return html.BuildImage(src, builder, alternateText, htmlAttributes);
+            var imageUrl = html.CreateUrlHelper().ImageUrl(src, configure);
+            return html.Image(imageUrl.ToString());
         }
 
-
-        public static MvcHtmlString BuildImage(this HtmlHelper html, string src, ImageBuilder builder, string alternateText = "", object htmlAttributes = null)
+        public static MvcHtmlString BuildImage(this HtmlHelper html, string src, ImageUrlBuilder builder, string alternateText = "", object htmlAttributes = null)
         {
-            if (builder == null)
-                throw new ArgumentNullException("builder");
+            var imageUrl = html.CreateUrlHelper().ImageUrl(src, builder);
+            return html.Image(imageUrl.ToString());
+        }
 
-            if (string.IsNullOrEmpty(src))
-                throw new ArgumentNullException("src");
-
-            return html.Image(builder.Build(src), alternateText, htmlAttributes);
+        private static UrlHelper CreateUrlHelper(this HtmlHelper html)
+        {
+            return new UrlHelper(html.ViewContext.RequestContext, html.RouteCollection);
         }
     }
 }

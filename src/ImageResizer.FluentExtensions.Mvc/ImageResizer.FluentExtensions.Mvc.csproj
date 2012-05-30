@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="HtmlHelperExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UrlHelperExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ImageResizer.FluentExtensions\ImageResizer.FluentExtensions.csproj">

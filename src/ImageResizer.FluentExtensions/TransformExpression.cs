@@ -5,9 +5,9 @@ namespace ImageResizer.FluentExtensions
     /// <summary>
     /// As expression for configuring image resize options
     /// </summary>
-    public class TransformExpression : ImageBuilderExpression
+    public class TransformExpression : ImageUrlBuilderExpression
     {
-        internal TransformExpression(ImageBuilder builder) : base(builder) { }
+        internal TransformExpression(ImageUrlBuilder builder) : base(builder) { }
 
         /// <summary>
         /// Automatically rotates the image based on the EXIF info from the camera. (Requires the AutoRotate plugin)

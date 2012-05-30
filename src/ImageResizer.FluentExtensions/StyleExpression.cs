@@ -5,9 +5,9 @@ namespace ImageResizer.FluentExtensions
     /// <summary>
     /// As expression for configuring image style options
     /// </summary>
-    public class StyleExpression : ImageBuilderExpression
+    public class StyleExpression : ImageUrlBuilderExpression
     {
-        internal StyleExpression(ImageBuilder builder) : base(builder) { }
+        internal StyleExpression(ImageUrlBuilder builder) : base(builder) { }
 
         /// <summary>
         /// Sets the background/whitespace color.

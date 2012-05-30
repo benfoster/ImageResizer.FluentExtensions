@@ -4,9 +4,9 @@ namespace ImageResizer.FluentExtensions
     /// <summary>
     /// As expression for configuring image resize options
     /// </summary>
-    public class ResizeExpression : ImageBuilderExpression
+    public class ResizeExpression : ImageUrlBuilderExpression
     {
-        internal ResizeExpression(ImageBuilder builder) : base(builder) { }
+        internal ResizeExpression(ImageUrlBuilder builder) : base(builder) { }
 
         /// <summary>
         /// Sets the width and height of the image. Adds whitespace and centers to maintain aspect ratio

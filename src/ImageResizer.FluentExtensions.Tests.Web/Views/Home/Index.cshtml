@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Index";
 
-    var builder = new ImageBuilder()
+    var builder = new ImageUrlBuilder()
         .Resize(img => img.Dimensions(400, 300).Crop())
         .Transform(img => img.FlipAfter(FlipType.X))
         .Style(img => img.PaddingWidth(10)
@@ -36,3 +36,13 @@
 
 <h4>Using existing builder</h4>
 @Html.BuildImage("~/images/image.jpg", builder)
+
+<h4>Using Url helper extension</h4>
+
+@Html.Image(Url.ImageUrl("~/images/image.jpg", builder).ToString());
+
+<h4>Using image url modifiers (Azure)</h4>
+
+<p>
+    @Url.ImageUrl("~/images/image.jpg", builder).FromAzure()
+</p>

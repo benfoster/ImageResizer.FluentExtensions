@@ -5,12 +5,12 @@ namespace ImageResizer.FluentExtensions.Tests
     [TestFixture]
     public class ResizeExpressionTests
     {
-        ImageBuilder builder;
+        ImageUrlBuilder builder;
 
         [SetUp]
         public void SetUp()
         {
-            builder = new ImageBuilder();
+            builder = new ImageUrlBuilder();
         }
 
         [Test]

@@ -4,9 +4,9 @@ namespace ImageResizer.FluentExtensions
     /// <summary>
     /// As expression for configuring image putput options
     /// </summary>
-    public class OutputExpression : ImageBuilderExpression
+    public class OutputExpression : ImageUrlBuilderExpression
     {
-        internal OutputExpression(ImageBuilder builder) : base(builder) { }
+        internal OutputExpression(ImageUrlBuilder builder) : base(builder) { }
 
         /// <summary>
         /// Sets the output format to use. By default, the original format (or the closest match) is used.

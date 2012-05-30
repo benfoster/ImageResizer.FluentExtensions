@@ -3,7 +3,7 @@ namespace ImageResizer.FluentExtensions
 {
     public class AlignmentExpression : ResizeExpression
     {
-        internal AlignmentExpression(ImageBuilder builder) : base(builder)
+        internal AlignmentExpression(ImageUrlBuilder builder) : base(builder)
         {
         }
 
