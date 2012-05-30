@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ImageResizer.FluentExtensions</id>
+    <title>Image Resizer Fluent Extensions</title>
+	<version>$version$</version>
+	<authors>$author$</authors>
+	<owners>$author$</owners>
+    <projectUrl>http://ben.onfabrik.com/posts/image-resizer-fluent-extensions</projectUrl>
+    <description>Fluent Extensions for generating Image Resizer HTTP api requests.</description>
+    <tags>ImageResizer ImageResizing.NET</tags>
+  </metadata>
+</package>

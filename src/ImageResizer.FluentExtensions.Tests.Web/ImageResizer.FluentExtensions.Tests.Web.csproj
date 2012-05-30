@@ -40,12 +40,6 @@
     <Reference Include="ImageResizer">
       <HintPath>..\packages\ImageResizer.3.1.5\lib\ImageResizer.dll</HintPath>
     </Reference>
-    <Reference Include="ImageResizer.FluentExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageResizer.FluentExtensions.1.0.0.0\lib\net40\ImageResizer.FluentExtensions.dll</HintPath>
-    </Reference>
-    <Reference Include="ImageResizer.FluentExtensions.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageResizer.FluentExtensions.Mvc.1.0.0.0\lib\net40\ImageResizer.FluentExtensions.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="ImageResizer.Mvc">
       <HintPath>..\packages\ImageResizer.Mvc.3.1.5\lib\ImageResizer.Mvc.dll</HintPath>
     </Reference>
@@ -75,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="foo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -144,7 +137,16 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ImageResizer.FluentExtensions.Mvc\ImageResizer.FluentExtensions.Mvc.csproj">
+      <Project>{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}</Project>
+      <Name>ImageResizer.FluentExtensions.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageResizer.FluentExtensions\ImageResizer.FluentExtensions.csproj">
+      <Project>{C3811C42-0118-443B-B0EB-FA82129B8C69}</Project>
+      <Name>ImageResizer.FluentExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
