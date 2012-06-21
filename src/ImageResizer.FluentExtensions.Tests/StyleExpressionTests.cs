@@ -63,7 +63,7 @@ namespace ImageResizer.FluentExtensions.Tests
         public void Style_margin_specific()
         {
             builder.Style(img => img.Margin(10, 5, 10, 5)).BuildUrl("image.jpg")
-                .ShouldEqual("image.jpg?margin=10%2c5%2c10%2c5"); // url encoded
+                .ShouldEqual("image.jpg?margin=10,5,10,5".Replace(",", "%2c")); // url encoded
         }
     }
 }

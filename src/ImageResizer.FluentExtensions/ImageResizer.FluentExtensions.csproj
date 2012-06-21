@@ -45,9 +45,11 @@
     <Compile Include="AzureExtensions.cs" />
     <Compile Include="ImageUrlBuilder.cs" />
     <Compile Include="ImageUrlBuilderExpression.cs" />
+    <Compile Include="NumberExtensions.cs" />
     <Compile Include="OutputExpression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResizeExpression.cs" />
+    <Compile Include="SimpleFiltersExpression.cs" />
     <Compile Include="StyleExpression.cs" />
     <Compile Include="TransformExpression.cs" />
   </ItemGroup>

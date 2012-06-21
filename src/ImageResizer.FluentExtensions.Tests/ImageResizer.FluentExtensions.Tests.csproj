@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureExtensionTests.cs" />
+    <Compile Include="SimpleFiltersExpressionTests.cs" />
     <Compile Include="ImageUrlBuilderExtensionTests.cs" />
     <Compile Include="ImageUrlBuilderSpecs.cs" />
     <Compile Include="OutputExpressionTests.cs" />
