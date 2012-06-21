@@ -46,7 +46,7 @@ namespace ImageResizer.FluentExtensions
         public SimpleFiltersExpression Alpha(double adjustment)
         {
             if (!adjustment.IsBetween(0, 1))
-                throw new ArgumentException("Alpha adjustment must be between 0 and 1");
+                throw new ArgumentOutOfRangeException("Alpha adjustment must be between 0 and 1");
 
             builder.SetParameter(SimpleFiltersParameters.Alpha, adjustment.ToString());
             return this;
@@ -60,7 +60,7 @@ namespace ImageResizer.FluentExtensions
         public SimpleFiltersExpression Brightness(double adjustment)
         {
             if (!adjustment.IsBetween(-1, 1))
-                throw new ArgumentException("Brightness must be between -1 and 1");
+                throw new ArgumentOutOfRangeException("Brightness must be between -1 and 1");
 
             builder.SetParameter(SimpleFiltersParameters.Brightness, adjustment.ToString());
             return this;
@@ -73,7 +73,7 @@ namespace ImageResizer.FluentExtensions
         public SimpleFiltersExpression Contrast(double adjustment)
         {
             if (!adjustment.IsBetween(-1, 1))
-                throw new ArgumentException("Contrast must be between -1 and 1");
+                throw new ArgumentOutOfRangeException("Contrast must be between -1 and 1");
 
             builder.SetParameter(SimpleFiltersParameters.Contrast, adjustment.ToString());
             return this;
@@ -86,7 +86,7 @@ namespace ImageResizer.FluentExtensions
         public SimpleFiltersExpression Saturate(double adjustment)
         {
             if (!adjustment.IsBetween(-1, 1))
-                throw new ArgumentException("Contrast must be between -1 and 1");
+                throw new ArgumentOutOfRangeException("Contrast must be between -1 and 1");
 
             builder.SetParameter(SimpleFiltersParameters.Saturation, adjustment.ToString());
             return this;

@@ -25,7 +25,7 @@ namespace ImageResizer.FluentExtensions
         public OutputExpression Quality(int compression)
         {
             if (!compression.IsBetween(0, 100))
-                throw new ArgumentException("The Jpeg compression must be between 0 and a 100");
+                throw new ArgumentOutOfRangeException("The Jpeg compression must be between 0 and a 100");
             
             builder.SetParameter(OutputParameters.Quality, compression.ToString());
             return this;
