@@ -24,10 +24,23 @@ namespace ImageResizer.FluentExtensions
         /// <param name="compression">Jpeg compression: 0-100 100=best, 90=very good balance, 0=ugly</param>
         public OutputExpression Quality(int compression)
         {
-            if (compression < 0 || compression > 100)
+            if (!compression.IsBetween(0, 100))
                 throw new ArgumentException("The Jpeg compression must be between 0 and a 100");
             
             builder.SetParameter(OutputParameters.Quality, compression.ToString());
+            return this;
+        }
+
+        /// <summary>
+        /// Control the palette size of PNG and GIF images. If omitted, PNGs will be 24-bit. (PrettyGifs plugin required)
+        /// </summary>
+        /// <param name="numberOfColors">A number between 2 and 255</param>
+        public OutputExpression Colors(int numberOfColors)
+        {
+            if (!numberOfColors.IsBetween(2, 255))
+                throw new ArgumentOutOfRangeException("The number of colors must be between 2 and 255");
+
+            builder.SetParameter(OutputParameters.Colors, numberOfColors.ToString());
             return this;
         }
 
@@ -38,6 +51,7 @@ namespace ImageResizer.FluentExtensions
         {
             internal const string Format = "format";
             internal const string Quality = "quality";
+            internal const string Colors = "colors";
         }
     }
 

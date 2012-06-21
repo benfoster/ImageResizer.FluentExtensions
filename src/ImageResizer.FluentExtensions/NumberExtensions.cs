@@ -14,7 +14,15 @@ namespace ImageResizer.FluentExtensions
         /// <summary>
         /// Checks whether a number is between or equal to <paramref name="lowerRange"/> and <paramref name="upperRange"/>
         /// </summary>
-        public static bool IsBetweenOrEqual(this double number, double lowerRange, double upperRange)
+        public static bool IsBetween(this int number, int lowerRange, int upperRange)
+        {
+            return ((double)number).IsBetween(lowerRange, upperRange);
+        }
+
+        /// <summary>
+        /// Checks whether a number is between or equal to <paramref name="lowerRange"/> and <paramref name="upperRange"/>
+        /// </summary>
+        public static bool IsBetween(this double number, double lowerRange, double upperRange)
         {           
             return (number >= lowerRange && number <= upperRange);
         }

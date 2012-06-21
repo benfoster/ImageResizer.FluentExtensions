@@ -45,7 +45,7 @@ namespace ImageResizer.FluentExtensions
         /// <param name="adjustment">A value between 0 (transparent) and 1 (non transparent)</param>
         public SimpleFiltersExpression Alpha(double adjustment)
         {
-            if (!adjustment.IsBetweenOrEqual(0, 1))
+            if (!adjustment.IsBetween(0, 1))
                 throw new ArgumentException("Alpha adjustment must be between 0 and 1");
 
             builder.SetParameter(SimpleFiltersParameters.Alpha, adjustment.ToString());
@@ -59,7 +59,7 @@ namespace ImageResizer.FluentExtensions
         /// <example>Set <paramref name="adjustment"/> to 0.5 to increase brightness by 50%</example>
         public SimpleFiltersExpression Brightness(double adjustment)
         {
-            if (!adjustment.IsBetweenOrEqual(-1, 1))
+            if (!adjustment.IsBetween(-1, 1))
                 throw new ArgumentException("Brightness must be between -1 and 1");
 
             builder.SetParameter(SimpleFiltersParameters.Brightness, adjustment.ToString());
@@ -72,7 +72,7 @@ namespace ImageResizer.FluentExtensions
         /// <param name="adjustment">A value between -1 (decrease contrast) and 1 (increase contrast)</param>
         public SimpleFiltersExpression Contrast(double adjustment)
         {
-            if (!adjustment.IsBetweenOrEqual(-1, 1))
+            if (!adjustment.IsBetween(-1, 1))
                 throw new ArgumentException("Contrast must be between -1 and 1");
 
             builder.SetParameter(SimpleFiltersParameters.Contrast, adjustment.ToString());
@@ -85,7 +85,7 @@ namespace ImageResizer.FluentExtensions
         /// <param name="adjustment">A value between -1 (decrease saturation) and 1 (increase saturation)</param>
         public SimpleFiltersExpression Saturate(double adjustment)
         {
-            if (!adjustment.IsBetweenOrEqual(-1, 1))
+            if (!adjustment.IsBetween(-1, 1))
                 throw new ArgumentException("Contrast must be between -1 and 1");
 
             builder.SetParameter(SimpleFiltersParameters.Saturation, adjustment.ToString());
