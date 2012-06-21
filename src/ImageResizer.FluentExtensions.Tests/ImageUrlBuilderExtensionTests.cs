@@ -51,7 +51,7 @@ namespace ImageResizer.FluentExtensions.Tests
             new ImageUrlBuilder()
                 .Resize(img => img.MaxWidth(200))
                 .ApplyFilters(filters => filters.Sepia().Brightness(.75M))
-                .Build("image.jpg")
+                .BuildUrl("image.jpg")
                 .ShouldEqual("image.jpg?maxwidth=200&sepia=true&brightness=0.75");
         }
     }

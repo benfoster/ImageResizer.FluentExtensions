@@ -31,6 +31,9 @@ namespace ImageResizer.FluentExtensions
             return this;
         }
 
+        /// <summary>
+        /// Output options see http://imageresizing.net/docs/reference
+        /// </summary>
         private static class OutputParameters
         {
             internal const string Format = "format";
@@ -38,10 +41,38 @@ namespace ImageResizer.FluentExtensions
         }
     }
 
+    /// <summary>
+    /// Output format options
+    /// </summary>
     public enum OutputFormat
     {
         Jpg,
         Png,
         Gif
+    }
+
+    public static class OutputExtensions
+    {
+        /// <summary>
+        /// Adds Output options to the <see cref="ImageUrlBuilder"/>
+        /// </summary>
+        /// <exception cref="System.ArgumentNullException">If the builder or configure action is null</exception>
+        /// <example>
+        /// This example sets the output quality to 80
+        /// <code>
+        /// builder.Output(img => img.Quality(90))
+        /// </code>
+        /// </example>
+        public static ImageUrlBuilder Output(this ImageUrlBuilder builder, Action<OutputExpression> configure)
+        {
+            if (builder == null)
+                throw new ArgumentNullException("builder");
+            
+            if (configure == null)
+                throw new ArgumentNullException("configure");
+            
+            configure(new OutputExpression(builder));
+            return builder;
+        }
     }
 }

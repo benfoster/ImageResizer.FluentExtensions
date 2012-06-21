@@ -101,6 +101,9 @@ namespace ImageResizer.FluentExtensions
             return this;
         }
 
+        /// <summary>
+        /// Styling commands see http://imageresizing.net/docs/reference
+        /// </summary>
         private static class StyleParameters
         {
             internal const string BackgroundColor = "bgcolor";
@@ -109,6 +112,31 @@ namespace ImageResizer.FluentExtensions
             internal const string BorderWidth = "borderWidth";
             internal const string BorderColor = "borderColor";
             internal const string Margin = "margin";
+        }
+    }
+
+    public static class StyleExtensions
+    {
+        /// <summary>
+        /// Adds Styling options to the <see cref="ImageUrlBuilder"/>
+        /// </summary>
+        /// <exception cref="System.ArgumentNullException">If the builder or configure action is null</exception>
+        /// <example>
+        /// This example adds 5px padding to the image and applies a 2px black border
+        /// <code>
+        /// builder.Style(img => img.PaddingWidth(5).BorderColor("000000").BorderWidth(2))
+        /// </code>
+        /// </example>
+        public static ImageUrlBuilder Style(this ImageUrlBuilder builder, Action<StyleExpression> configure)
+        {
+            if (builder == null)
+                throw new ArgumentNullException("builder");
+
+            if (configure == null)
+                throw new ArgumentNullException("configure");
+            
+            configure(new StyleExpression(builder));
+            return builder;
         }
     }
 }

@@ -4,61 +4,73 @@ namespace ImageResizer.FluentExtensions.Tests
 {
     [TestFixture]
     public class AzureExtensionTests
-    {       
+    {
+        private ImageUrlBuilder builder;
+
+        [SetUp]
+        public void SetUp()
+        {
+            builder = new ImageUrlBuilder();
+        }
+        
         [Test]
         public void Azure_with_defaults()
         {
-            var url = new ImageUrl("testimage.jpg");
-            url.FromAzure().ToString().ShouldEqual("/azure/testimage.jpg");
+            builder.FromAzure().BuildUrl("testimage.jpg").ShouldEqual("/azure/testimage.jpg");
         }
 
         [Test]
         public void Azure_with_prefix()
         {
-            var url = new ImageUrl("testimage.jpg");
-            url.FromAzure(prefix: "blobs").ToString().ShouldEqual("/blobs/testimage.jpg");
+            builder.FromAzure(prefix: "blobs").BuildUrl("testimage.jpg").ShouldEqual("/blobs/testimage.jpg");
         }
 
         [Test]
         public void Azure_with_container()
         {
-            var url = new ImageUrl("testimage.jpg");
-            url.FromAzure(container: "images").ToString().ShouldEqual("/azure/images/testimage.jpg");
+            builder.FromAzure(container: "images").BuildUrl("testimage.jpg").ShouldEqual("/azure/images/testimage.jpg");
         }
 
         [Test]
         public void Azure_with_prefix_and_container()
         {
-            var url = new ImageUrl("testimage.jpg");
-            url.FromAzure("blobs", "images").ToString().ShouldEqual("/blobs/images/testimage.jpg");
+            builder.FromAzure("blobs", "images").BuildUrl("testimage.jpg").ShouldEqual("/blobs/images/testimage.jpg");
         }
 
         [Test]
         public void Azure_with_subfolders()
         {
-            var url = new ImageUrl("images/archive/2011/testimage.jpg");
-            url.FromAzure().ToString().ShouldEqual("/azure/images/archive/2011/testimage.jpg");
+            builder.FromAzure().BuildUrl("images/archive/2011/testimage.jpg")
+                .ShouldEqual("/azure/images/archive/2011/testimage.jpg");
         }
 
         [Test]
         public void Azure_with_container_and_subfolders()
         {
-            var url = new ImageUrl("images/archive/2011/testimage.jpg");
-            url.FromAzure(container: "blobs").ToString().ShouldEqual("/azure/blobs/images/archive/2011/testimage.jpg");
+            builder.FromAzure(container: "blobs").BuildUrl("images/archive/2011/testimage.jpg")
+                .ShouldEqual("/azure/blobs/images/archive/2011/testimage.jpg");
         }
 
         [Test]
         public void Azure_with_absolute_path()
         {
-            var url = new ImageUrl("/images/testimage.jpg");
-            url.FromAzure().ToString().ShouldEqual("/azure/images/testimage.jpg");
+            builder.FromAzure().BuildUrl("/images/testimage.jpg")
+                .ShouldEqual("/azure/images/testimage.jpg");
         }
 
         [Test]
         public void Azure_with_virtual_path()
         {
-            var url = new ImageUrl("~/images/testimage.jpg");
-            url.FromAzure().ToString().ShouldEqual("/azure/images/testimage.jpg");
+            builder.FromAzure().BuildUrl("~/images/testimage.jpg")
+                .ShouldEqual("/azure/images/testimage.jpg");
+        }
+
+        [Test]
+        public void Azure_with_prefix_container_and_commands()
+        {
+            builder.Resize(img => img.MaxWidth(100)).FromAzure("cloud", "images")
+                .BuildUrl("/archive/testimage.jpg")
+                .ShouldEqual("/cloud/images/archive/testimage.jpg?maxwidth=100");
         }
     }
 }

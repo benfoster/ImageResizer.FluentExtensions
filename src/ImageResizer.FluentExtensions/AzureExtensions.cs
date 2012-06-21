@@ -6,10 +6,10 @@ namespace ImageResizer.FluentExtensions
 {
     public static class AzureExtensions
     {
-        public static ImageUrl FromAzure(this ImageUrl url, string prefix = "azure", string container = null)
+        public static ImageUrlBuilder FromAzure(this ImageUrlBuilder urlBuilder, string prefix = "azure", string container = null)
         {
-            url.AddModifier(s => FixPath(s, prefix, container));
-            return url;
+            urlBuilder.AddModifier(s => FixPath(s, prefix, container));
+            return urlBuilder;
         }
 
         private static string FixPath(string imagePath, string prefix, string container)

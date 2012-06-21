@@ -7,7 +7,7 @@ namespace ImageResizer.FluentExtensions
     /// </summary>
     public abstract class ImageUrlBuilderExpression
     {
-        protected readonly ImageUrlBuilder builder;
+        protected ImageUrlBuilder builder;
 
         public ImageUrlBuilderExpression(ImageUrlBuilder builder)
         {
@@ -15,6 +15,12 @@ namespace ImageResizer.FluentExtensions
                 throw new ArgumentNullException("builder");
 
             this.builder = builder;
+        }
+
+        public virtual ImageUrlBuilderExpression Initialize(ImageUrlBuilder builder)
+        {
+            this.builder = builder;
+            return this;
         }
     }
 }

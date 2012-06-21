@@ -16,14 +16,14 @@ namespace ImageResizer.FluentExtensions.Tests
         [Test]
         public void Output_Format()
         {
-            builder.Output(img => img.Format(OutputFormat.Png)).Build("image.jpg")
+            builder.Output(img => img.Format(OutputFormat.Png)).BuildUrl("image.jpg")
                 .ShouldEqual("image.jpg?format=png");
         }
 
         [Test]
         public void Output_Quality()
         {
-            builder.Output(img => img.Quality(90)).Build("image.jpg")
+            builder.Output(img => img.Quality(90)).BuildUrl("image.jpg")
                 .ShouldEqual("image.jpg?quality=90");
         }
     }

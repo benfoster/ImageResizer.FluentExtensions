@@ -6,7 +6,7 @@ namespace ImageResizer.FluentExtensions.Mvc
 {
     public static class UrlHelperExtensions
     {
-        public static ImageUrl ImageUrl(this UrlHelper url, string imagePath, Action<ImageUrlBuilder> configure)
+        public static string ImageUrl(this UrlHelper url, string imagePath, Action<ImageUrlBuilder> configure)
         {
             if (string.IsNullOrEmpty(imagePath))
                 throw new ArgumentNullException("imagePath");
@@ -20,7 +20,7 @@ namespace ImageResizer.FluentExtensions.Mvc
             return url.ImageUrl(imagePath, builder);
         }
 
-        public static ImageUrl ImageUrl(this UrlHelper url, string imagePath, ImageUrlBuilder builder)
+        public static string ImageUrl(this UrlHelper url, string imagePath, ImageUrlBuilder builder)
         {
             if (string.IsNullOrEmpty(imagePath))
                 throw new ArgumentNullException("imagePath");

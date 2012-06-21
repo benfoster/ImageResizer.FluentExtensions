@@ -60,6 +60,9 @@ namespace ImageResizer.FluentExtensions
             return this;
         }
 
+        /// <summary>
+        /// Transform commands see http://imageresizing.net/docs/reference
+        /// </summary>
         private static class TransformParameters
         {
             internal const string AutoRotate = "autorotate";
@@ -70,6 +73,9 @@ namespace ImageResizer.FluentExtensions
         }
     }
 
+    /// <summary>
+    /// Image Rotation options
+    /// </summary>
     public enum RotateType
     {
         None = 0,
@@ -78,11 +84,39 @@ namespace ImageResizer.FluentExtensions
         Rotate270 = 270
     }
 
+    /// <summary>
+    /// Image Flip Options
+    /// </summary>
     public enum FlipType
     {
         None,
         X,
         Y,
         XY
+    }
+
+    public static class TransformExtensions
+    {
+        /// <summary>
+        /// Adds Transformation options to the <see cref="ImageUrlBuilder"/>
+        /// </summary>
+        /// <exception cref="System.ArgumentNullException">If the builder or configure action is null</exception>
+        /// <example>
+        /// This example rotates the image 180 degrees then flips the image on the X axis
+        /// <code>
+        /// builder.Transform(img => img.Rotate(RotateType.Rotate180).FlipAfter(FlipType.X))
+        /// </code>
+        /// </example>
+        public static ImageUrlBuilder Transform(this ImageUrlBuilder builder, Action<TransformExpression> configure)
+        {           
+            if (builder == null)
+                throw new ArgumentNullException("builder");
+
+            if (configure == null)
+                throw new ArgumentNullException("configure");
+
+            configure(new TransformExpression(builder));
+            return builder;
+        }
     }
 }

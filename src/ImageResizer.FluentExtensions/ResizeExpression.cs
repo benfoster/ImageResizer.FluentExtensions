@@ -155,6 +155,9 @@ namespace ImageResizer.FluentExtensions
             return this;
         }
 
+        /// <summary>
+        /// Resize commands see http://imageresizing.net/docs/reference
+        /// </summary>
         private static class ResizeParameters
         {
             internal const string Width = "width";
@@ -172,6 +175,31 @@ namespace ImageResizer.FluentExtensions
             internal const string ScaleTypeCanvas = "upscalecanvas";
             internal const string ScaleTypeBoth = "both";
             internal const string Zoom = "zoom";
+        }
+    }
+
+    public static class ResizeExtensions
+    {
+        /// <summary>
+        /// Adds Resize options to the <see cref="ImageUrlBuilder"/>
+        /// </summary>
+        /// <exception cref="System.ArgumentNullException">If the builder or configure action is null</exception>
+        /// <example>
+        /// This example crops and image to the specified width and height
+        /// <code>
+        /// builder.Resize(img => img.Width(200).Height(100).Crop())
+        /// </code>
+        /// </example>
+        public static ImageUrlBuilder Resize(this ImageUrlBuilder builder, Action<ResizeExpression> configure)
+        {
+            if (builder == null)
+                throw new ArgumentNullException("builder");
+
+            if (configure == null)
+                throw new ArgumentNullException("configure");
+            
+            configure(new ResizeExpression(builder));
+            return builder;
         }
     }
 }

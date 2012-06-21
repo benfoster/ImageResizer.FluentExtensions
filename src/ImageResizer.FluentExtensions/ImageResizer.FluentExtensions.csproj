@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="AlignmentExpression.cs" />
     <Compile Include="AzureExtensions.cs" />
-    <Compile Include="ImageUrl.cs" />
     <Compile Include="ImageUrlBuilder.cs" />
     <Compile Include="ImageUrlBuilderExpression.cs" />
     <Compile Include="OutputExpression.cs" />

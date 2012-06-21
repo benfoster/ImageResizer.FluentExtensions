@@ -125,8 +125,8 @@ div.supplement {
 </h1>
 <h2 class="count">
   3 concerns,
-  7 contexts,
-  7 specifications
+  13 contexts,
+  13 specifications
 </h2>
   
   <hr/>
@@ -138,13 +138,13 @@ div.supplement {
 <h3 class="count">
   2 contexts, 2 specifications
 </h3><h3 class="context">
-  When the modifier is a valid delegate
+  When the modifier is a valid function
 </h3>
 <h4 class="count">
   1 specification
 </h4>
         <ul>
-          <li class="spec"><span id="5">Should add the modifier</span>
+          <li class="spec"><span id="2">Should apply the modifier</span>
 
 
 
@@ -176,7 +176,7 @@ div.supplement {
   1 specification
 </h4>
         <ul>
-          <li class="spec"><span id="4">Should throw</span>
+          <li class="spec"><span id="1">Should throw</span>
 
 
 
@@ -185,18 +185,78 @@ div.supplement {
 
           </li>
         </ul><h2 class="concern">
-  Creating an image url specifications
+  Building a url specifications
 </h2>
 <h3 class="count">
-  3 contexts, 3 specifications
+  7 contexts, 7 specifications
 </h3><h3 class="context">
-  When the image path is a valid string
+  When a configuration and modifiers exist
 </h3>
 <h4 class="count">
   1 specification
 </h4>
         <ul>
-          <li class="spec"><span id="3">Should set the image path</span>
+          <li class="spec"><span id="13">Should build the url and apply the modifiers</span>
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When a configuration exists and no modifiers exist
+</h3>
+<h4 class="count">
+  1 specification
+</h4>
+        <ul>
+          <li class="spec"><span id="11">Should apply the configuration expressions</span>
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When multiple modifiers exist
+</h3>
+<h4 class="count">
+  1 specification
+</h4>
+        <ul>
+          <li class="spec"><span id="12">Should apply them in order</span>
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When the configuration is empty and modifiers exist
+</h3>
+<h4 class="count">
+  1 specification
+</h4>
+        <ul>
+          <li class="spec"><span id="10">Should apply the modifier</span>
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When the configuration is empty and no modifiers exist
+</h3>
+<h4 class="count">
+  1 specification
+</h4>
+        <ul>
+          <li class="spec"><span id="9">Should return the original file name</span>
 
 
 
@@ -211,7 +271,7 @@ div.supplement {
   1 specification
 </h4>
         <ul>
-          <li class="spec"><span id="2">Should throw</span>
+          <li class="spec"><span id="8">Should throw</span>
 
 
 
@@ -226,7 +286,7 @@ div.supplement {
   1 specification
 </h4>
         <ul>
-          <li class="spec"><span id="1">Should throw</span>
+          <li class="spec"><span id="7">Should throw</span>
 
 
 
@@ -235,18 +295,18 @@ div.supplement {
 
           </li>
         </ul><h2 class="concern">
-  Processing the image url specifications
+  Setting parameters specifications
 </h2>
 <h3 class="count">
-  2 contexts, 2 specifications
+  4 contexts, 4 specifications
 </h3><h3 class="context">
-  When modifiers exist
+  When the parameter name is empty
 </h3>
 <h4 class="count">
   1 specification
 </h4>
         <ul>
-          <li class="spec"><span id="7">Should process each modifier in order</span>
+          <li class="spec"><span id="4">Should throw</span>
 
 
 
@@ -255,13 +315,43 @@ div.supplement {
 
           </li>
         </ul><h3 class="context">
-  When no modifiers exist
+  When the parameter name is null
 </h3>
 <h4 class="count">
   1 specification
 </h4>
         <ul>
-          <li class="spec"><span id="6">Should return the original image path</span>
+          <li class="spec"><span id="3">Should throw</span>
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When the parameter value is empty
+</h3>
+<h4 class="count">
+  1 specification
+</h4>
+        <ul>
+          <li class="spec"><span id="6">Should throw</span>
+
+
+
+
+ 
+
+          </li>
+        </ul><h3 class="context">
+  When the parameter value is null
+</h3>
+<h4 class="count">
+  1 specification
+</h4>
+        <ul>
+          <li class="spec"><span id="5">Should throw</span>
 
 
 

@@ -51,8 +51,7 @@
   <ItemGroup>
     <Compile Include="AzureExtensionTests.cs" />
     <Compile Include="ImageUrlBuilderExtensionTests.cs" />
-    <Compile Include="ImageUrlBuilderTests.cs" />
-    <Compile Include="ImageUrlSpecs.cs" />
+    <Compile Include="ImageUrlBuilderSpecs.cs" />
     <Compile Include="OutputExpressionTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResizeExpressionTests.cs" />
