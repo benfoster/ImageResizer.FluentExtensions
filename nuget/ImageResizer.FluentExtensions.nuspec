@@ -4,10 +4,13 @@
     <id>ImageResizer.FluentExtensions</id>
     <title>Image Resizer Fluent Extensions</title>
 	<version>$version$</version>
-	<authors>$author$</authors>
-	<owners>$author$</owners>
-    <projectUrl>http://ben.onfabrik.com/posts/image-resizer-fluent-extensions</projectUrl>
+    <authors>Ben Foster</authors>
+    <owners>Ben Foster</owners>
+    <projectUrl>https://github.com/benfoster/ImageResizer.FluentExtensions</projectUrl>
     <description>Fluent Extensions for generating Image Resizer HTTP api requests.</description>
     <tags>ImageResizer ImageResizing.NET</tags>
   </metadata>
+  <files>
+    <file src="ImageResizer.FluentExtensions.dll" target="lib" />
+  </files>
 </package>

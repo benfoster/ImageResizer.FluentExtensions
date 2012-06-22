@@ -9,6 +9,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions.Mvc", "src\ImageResizer.FluentExtensions.Mvc\ImageResizer.FluentExtensions.Mvc.csproj", "{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{96450540-386F-463B-9905-C496A5440C25}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\ImageResizer.FluentExtensions.Mvc.nuspec = nuget\ImageResizer.FluentExtensions.Mvc.nuspec
+		nuget\ImageResizer.FluentExtensions.nuspec = nuget\ImageResizer.FluentExtensions.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{16881C95-E325-4AF5-BA38-048BB9649722}"
+	ProjectSection(SolutionItems) = preProject
+		src\Version.cs = src\Version.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

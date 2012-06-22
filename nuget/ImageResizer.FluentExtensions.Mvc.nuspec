@@ -3,14 +3,17 @@
   <metadata>
     <id>ImageResizer.FluentExtensions.Mvc</id>
     <title>Image Resizer Fluent Extensions for ASP.NET MVC</title>
-	<version>$version$</version>
-	<authors>$author$</authors>
-	<owners>$author$</owners>
-    <projectUrl>http://ben.onfabrik.com/posts/image-resizer-fluent-extensions</projectUrl>
-    <description>ASP.NET MVC Html Helpers for generating Image Resizer HTTP api requests.</description>
+    <version>$version$</version>
+    <authors>Ben Foster</authors>
+    <owners>Ben Foster</owners>
+    <projectUrl>https://github.com/benfoster/ImageResizer.FluentExtensions</projectUrl>
+    <description>ASP.NET MVC Html Helpers for generating Image Resizer URL api requests.</description>
     <tags>ImageResizer ImageResizing.NET</tags>
     <dependencies>
       <dependency id="ImageResizer.FluentExtensions" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="ImageResizer.FluentExtensions.Mvc.dll" target="lib" />
+  </files>
 </package>
