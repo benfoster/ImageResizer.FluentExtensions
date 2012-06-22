@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AlignmentExpression.cs" />
     <Compile Include="AzureExtensions.cs" />
+    <Compile Include="GradientExpression.cs" />
     <Compile Include="ImageUrlBuilder.cs" />
     <Compile Include="ImageUrlBuilderExpression.cs" />
     <Compile Include="NumberExtensions.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="SimpleFiltersExpression.cs" />
     <Compile Include="StyleExpression.cs" />
     <Compile Include="TransformExpression.cs" />
+    <Compile Include="MiscExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

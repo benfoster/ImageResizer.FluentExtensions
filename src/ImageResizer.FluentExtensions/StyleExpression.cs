@@ -18,7 +18,7 @@ namespace ImageResizer.FluentExtensions
             if (string.IsNullOrEmpty(backgroundColor))
                 throw new ArgumentNullException("backgroundColor");
             
-            builder.SetParameter(StyleParameters.BackgroundColor, backgroundColor);
+            builder.SetParameter(StyleCommands.BackgroundColor, backgroundColor);
             return this;
         }
 
@@ -31,7 +31,7 @@ namespace ImageResizer.FluentExtensions
             if (paddingWidth < 0)
                 throw new ArgumentException("Padding width cannot be negative.");
 
-            builder.SetParameter(StyleParameters.PaddingWidth, paddingWidth.ToString());
+            builder.SetParameter(StyleCommands.PaddingWidth, paddingWidth.ToString());
             return this;
         }
 
@@ -44,7 +44,7 @@ namespace ImageResizer.FluentExtensions
             if (string.IsNullOrEmpty(paddingColor))
                 throw new ArgumentNullException("paddingColor");
 
-            builder.SetParameter(StyleParameters.PaddingColor, paddingColor);
+            builder.SetParameter(StyleCommands.PaddingColor, paddingColor);
             return this;
         }
 
@@ -57,7 +57,7 @@ namespace ImageResizer.FluentExtensions
             if (borderWidth < 0)
                 throw new ArgumentException("Border width cannot be negative.");
 
-            builder.SetParameter(StyleParameters.BorderWidth, borderWidth.ToString());
+            builder.SetParameter(StyleCommands.BorderWidth, borderWidth.ToString());
             return this;
         }
 
@@ -70,7 +70,7 @@ namespace ImageResizer.FluentExtensions
             if (string.IsNullOrEmpty(borderColor))
                 throw new ArgumentNullException("borderColor");
 
-            builder.SetParameter(StyleParameters.BorderColor, borderColor);
+            builder.SetParameter(StyleCommands.BorderColor, borderColor);
             return this;
         }
 
@@ -83,7 +83,7 @@ namespace ImageResizer.FluentExtensions
             if (width < 0)
                 throw new ArgumentException("Margins cannot be negative.");
 
-            builder.SetParameter(StyleParameters.Margin, width.ToString());
+            builder.SetParameter(StyleCommands.Margin, width.ToString());
             return this;
         }
 
@@ -97,14 +97,14 @@ namespace ImageResizer.FluentExtensions
             foreach (var margin in margins)
                 if (margin < 0) { throw new ArgumentException("Margins cannot be negative"); }
 
-            builder.SetParameter(StyleParameters.Margin, string.Join(",", margins));
+            builder.SetParameter(StyleCommands.Margin, string.Join(",", margins));
             return this;
         }
 
         /// <summary>
         /// Styling commands see http://imageresizing.net/docs/reference
         /// </summary>
-        private static class StyleParameters
+        private static class StyleCommands
         {
             internal const string BackgroundColor = "bgcolor";
             internal const string PaddingWidth = "paddingWidth";

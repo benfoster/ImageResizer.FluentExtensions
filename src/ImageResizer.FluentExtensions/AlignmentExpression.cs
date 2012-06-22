@@ -14,7 +14,7 @@ namespace ImageResizer.FluentExtensions
         /// <returns></returns>
         public AlignmentExpression Anchor(AnchorPoint anchorPoint)
         {
-            builder.SetParameter(AlignmentParameters.Anchor, anchorPoint.ToString().ToLowerInvariant());
+            builder.SetParameter(AlignmentCommands.Anchor, anchorPoint.ToString().ToLowerInvariant());
             return this;
         }
     }
@@ -32,7 +32,7 @@ namespace ImageResizer.FluentExtensions
         BottomRight
     }
 
-    internal static class AlignmentParameters
+    internal static class AlignmentCommands
     {
         internal const string Anchor = "anchor";
     }

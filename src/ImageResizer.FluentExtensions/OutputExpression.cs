@@ -14,7 +14,7 @@ namespace ImageResizer.FluentExtensions
         /// <param name="format">The desired output format</param>
         public OutputExpression Format(OutputFormat format)
         {
-            builder.SetParameter(OutputParameters.Format, format.ToString().ToLowerInvariant());
+            builder.SetParameter(OutputCommands.Format, format.ToString().ToLowerInvariant());
             return this;
         }
 
@@ -27,7 +27,7 @@ namespace ImageResizer.FluentExtensions
             if (!compression.IsBetween(0, 100))
                 throw new ArgumentOutOfRangeException("The Jpeg compression must be between 0 and a 100");
             
-            builder.SetParameter(OutputParameters.Quality, compression.ToString());
+            builder.SetParameter(OutputCommands.Quality, compression.ToString());
             return this;
         }
 
@@ -40,18 +40,34 @@ namespace ImageResizer.FluentExtensions
             if (!numberOfColors.IsBetween(2, 255))
                 throw new ArgumentOutOfRangeException("The number of colors must be between 2 and 255");
 
-            builder.SetParameter(OutputParameters.Colors, numberOfColors.ToString());
+            builder.SetParameter(OutputCommands.Colors, numberOfColors.ToString());
             return this;
         }
 
         /// <summary>
-        /// Output options see http://imageresizing.net/docs/reference
+        /// Gain a 15-30% speed boost by sacrificing rendering quality.
+        /// For more information see http://imageresizing.net/plugins/speedorquality.
         /// </summary>
-        private static class OutputParameters
+        /// <param name="quality">A value between 0 (highest quality) and 3 (lowest quality, highest speed)</param>
+        /// <returns></returns>
+        public OutputExpression SpeedOrQuality(int quality)
+        {
+            if (quality.IsNotBetween(0, 3))
+                throw new ArgumentOutOfRangeException("Quality value must be between 0 and 3");
+
+            builder.SetParameter(OutputCommands.SpeedOrQuality, quality.ToString());
+            return this;
+        }
+
+        /// <summary>
+        /// Output commands see http://imageresizing.net/docs/reference
+        /// </summary>
+        private static class OutputCommands
         {
             internal const string Format = "format";
             internal const string Quality = "quality";
             internal const string Colors = "colors";
+            internal const string SpeedOrQuality = "speed";
         }
     }
 

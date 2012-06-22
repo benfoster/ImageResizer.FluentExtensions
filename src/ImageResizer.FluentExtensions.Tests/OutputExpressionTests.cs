@@ -33,5 +33,12 @@ namespace ImageResizer.FluentExtensions.Tests
             builder.Output(img => img.Colors(64)).BuildUrl("image.jpg")
                 .ShouldEqual("image.jpg?colors=64");
         }
+
+        [Test]
+        public void Output_SpeedOrQuality()
+        {
+            builder.Output(img => img.SpeedOrQuality(2)).BuildUrl("image.jpg")
+                .ShouldEqual("image.jpg?speed=2");
+        }
     }
 }

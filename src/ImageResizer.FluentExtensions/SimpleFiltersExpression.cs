@@ -15,7 +15,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public SimpleFiltersExpression Grayscale()
         {
-            builder.SetParameter(SimpleFiltersParameters.Grayscale, true.ToString().ToLowerInvariant());
+            builder.SetParameter(SimpleFiltersCommands.Grayscale, true.ToString().ToLowerInvariant());
             return this;
         }
 
@@ -25,7 +25,7 @@ namespace ImageResizer.FluentExtensions
         /// <param name="grayScaleOptions">The type of greyscale to apply</param>
         public SimpleFiltersExpression Grayscale(GrayscaleOptions grayScaleOptions)
         {
-            builder.SetParameter(SimpleFiltersParameters.Grayscale, grayScaleOptions.ToString().ToLowerInvariant());
+            builder.SetParameter(SimpleFiltersCommands.Grayscale, grayScaleOptions.ToString().ToLowerInvariant());
             return this;
         }
                
@@ -34,7 +34,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public SimpleFiltersExpression Sepia()
         {
-            builder.SetParameter(SimpleFiltersParameters.Sepia, "true");
+            builder.SetParameter(SimpleFiltersCommands.Sepia, "true");
             return this;
         }
 
@@ -48,7 +48,7 @@ namespace ImageResizer.FluentExtensions
             if (!adjustment.IsBetween(0, 1))
                 throw new ArgumentOutOfRangeException("Alpha adjustment must be between 0 and 1");
 
-            builder.SetParameter(SimpleFiltersParameters.Alpha, adjustment.ToString());
+            builder.SetParameter(SimpleFiltersCommands.Alpha, adjustment.ToString());
             return this;
         }
 
@@ -62,7 +62,7 @@ namespace ImageResizer.FluentExtensions
             if (!adjustment.IsBetween(-1, 1))
                 throw new ArgumentOutOfRangeException("Brightness must be between -1 and 1");
 
-            builder.SetParameter(SimpleFiltersParameters.Brightness, adjustment.ToString());
+            builder.SetParameter(SimpleFiltersCommands.Brightness, adjustment.ToString());
             return this;
         }
 
@@ -75,7 +75,7 @@ namespace ImageResizer.FluentExtensions
             if (!adjustment.IsBetween(-1, 1))
                 throw new ArgumentOutOfRangeException("Contrast must be between -1 and 1");
 
-            builder.SetParameter(SimpleFiltersParameters.Contrast, adjustment.ToString());
+            builder.SetParameter(SimpleFiltersCommands.Contrast, adjustment.ToString());
             return this;
         }
 
@@ -88,7 +88,7 @@ namespace ImageResizer.FluentExtensions
             if (!adjustment.IsBetween(-1, 1))
                 throw new ArgumentOutOfRangeException("Contrast must be between -1 and 1");
 
-            builder.SetParameter(SimpleFiltersParameters.Saturation, adjustment.ToString());
+            builder.SetParameter(SimpleFiltersCommands.Saturation, adjustment.ToString());
             return this;
         }
 
@@ -97,7 +97,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public SimpleFiltersExpression Invert()
         {
-            builder.SetParameter(SimpleFiltersParameters.Invert, true.ToString().ToLowerInvariant());
+            builder.SetParameter(SimpleFiltersCommands.Invert, true.ToString().ToLowerInvariant());
             return this;
         }
 
@@ -110,7 +110,7 @@ namespace ImageResizer.FluentExtensions
             if (!radiusPercentage.IsValidPercentage())
                 throw new ArgumentException("Radius Percentage must be between 0 and 100");
 
-            builder.SetParameter(SimpleFiltersParameters.RoundCorners, radiusPercentage.ToString());
+            builder.SetParameter(SimpleFiltersCommands.RoundCorners, radiusPercentage.ToString());
             return this;
         }
 
@@ -128,14 +128,14 @@ namespace ImageResizer.FluentExtensions
             foreach (var percentage in percentages)
                 if (!percentage.IsValidPercentage()) { throw new ArgumentException("Radius percentages must be between 0 and 100"); }
 
-            builder.SetParameter(SimpleFiltersParameters.RoundCorners, string.Join(",", percentages));
+            builder.SetParameter(SimpleFiltersCommands.RoundCorners, string.Join(",", percentages));
             return this;
         }
 
         /// <summary>
         /// SimpleFilters commands see http://imageresizing.net/plugins/simplefilters
         /// </summary>
-        private static class SimpleFiltersParameters
+        private static class SimpleFiltersCommands
         {
             internal const string Grayscale = "s.grayscale";
             internal const string Sepia = "s.sepia";
@@ -165,9 +165,9 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         /// <exception cref="System.ArgumentNullException">If the builder or configure action is null</exception>
         /// <example>
-        /// This example adds 5px padding to the image and applies a 2px black border
+        /// This example reduces constrast by 20% and makes the image 50% transparent
         /// <code>
-        /// builder.Style(img => img.PaddingWidth(5).BorderColor("000000").BorderWidth(2))
+        /// builder.SimpleFilters(img => img.Contrast(-0.8).Alpha(0.5));
         /// </code>
         /// </example>
         public static ImageUrlBuilder SimpleFilters(this ImageUrlBuilder builder, Action<SimpleFiltersExpression> configure)

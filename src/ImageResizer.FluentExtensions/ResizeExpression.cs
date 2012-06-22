@@ -27,7 +27,7 @@ namespace ImageResizer.FluentExtensions
             if (width <= 0)
                 throw new ArgumentException("Width must be greater than 0.");
 
-            builder.SetParameter(ResizeParameters.Width, width.ToString());
+            builder.SetParameter(ResizeCommands.Width, width.ToString());
             return this;
         }
 
@@ -40,7 +40,7 @@ namespace ImageResizer.FluentExtensions
             if (height <= 0)
                 throw new ArgumentException("Height must be greater than 0.");
 
-            builder.SetParameter(ResizeParameters.Height, height.ToString());
+            builder.SetParameter(ResizeCommands.Height, height.ToString());
             return this;
         }
 
@@ -53,7 +53,7 @@ namespace ImageResizer.FluentExtensions
             if (maxWidth <= 0)
                 throw new ArgumentException("Max Width must be greater than 0.");
 
-            builder.SetParameter(ResizeParameters.MaxWidth, maxWidth.ToString());
+            builder.SetParameter(ResizeCommands.MaxWidth, maxWidth.ToString());
             return this;
         }
 
@@ -66,7 +66,7 @@ namespace ImageResizer.FluentExtensions
             if (maxHeight <= 0)
                 throw new ArgumentException("Max Height must be greater than 0.");
 
-            builder.SetParameter(ResizeParameters.MaxHeight, maxHeight.ToString());
+            builder.SetParameter(ResizeCommands.MaxHeight, maxHeight.ToString());
             return this;
         }
 
@@ -75,7 +75,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public ResizeExpression Max()
         {
-            builder.SetParameter(ResizeParameters.FitMode, ResizeParameters.FitModeMax);
+            builder.SetParameter(ResizeCommands.FitMode, ResizeCommands.FitModeMax);
             return this;
         }
 
@@ -84,7 +84,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public AlignmentExpression Pad()
         {
-            builder.SetParameter(ResizeParameters.FitMode, ResizeParameters.FitModePad);
+            builder.SetParameter(ResizeCommands.FitMode, ResizeCommands.FitModePad);
             return new AlignmentExpression(this.builder);
         }
 
@@ -93,7 +93,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public AlignmentExpression Crop()
         {
-            builder.SetParameter(ResizeParameters.FitMode, ResizeParameters.FitModeCrop);
+            builder.SetParameter(ResizeCommands.FitMode, ResizeCommands.FitModeCrop);
             return new AlignmentExpression(this.builder);
         }
 
@@ -102,7 +102,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public ResizeExpression Stretch()
         {
-            builder.SetParameter(ResizeParameters.FitMode, ResizeParameters.FitModeStretch);
+            builder.SetParameter(ResizeCommands.FitMode, ResizeCommands.FitModeStretch);
             return new AlignmentExpression(this.builder);
         }
 
@@ -111,7 +111,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public ResizeExpression ScaleUp()
         {
-            builder.SetParameter(ResizeParameters.ScaleType, ResizeParameters.ScaleTypeUp);
+            builder.SetParameter(ResizeCommands.ScaleType, ResizeCommands.ScaleTypeUp);
             return new AlignmentExpression(this.builder);
         }
 
@@ -120,7 +120,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public ResizeExpression ScaleDown()
         {
-            builder.SetParameter(ResizeParameters.ScaleType, ResizeParameters.ScaleTypeDown);
+            builder.SetParameter(ResizeCommands.ScaleType, ResizeCommands.ScaleTypeDown);
             return new AlignmentExpression(this.builder);
         }
 
@@ -129,7 +129,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public ResizeExpression ScaleBoth()
         {
-            builder.SetParameter(ResizeParameters.ScaleType, ResizeParameters.ScaleTypeBoth);
+            builder.SetParameter(ResizeCommands.ScaleType, ResizeCommands.ScaleTypeBoth);
             return new AlignmentExpression(this.builder);
         }
 
@@ -138,7 +138,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public AlignmentExpression ScaleCanvas()
         {
-            builder.SetParameter(ResizeParameters.ScaleType, ResizeParameters.ScaleTypeCanvas);
+            builder.SetParameter(ResizeCommands.ScaleType, ResizeCommands.ScaleTypeCanvas);
             return new AlignmentExpression(this.builder);
         }
 
@@ -151,14 +151,14 @@ namespace ImageResizer.FluentExtensions
             if (multiplier <= 0)
                 throw new ArgumentException("The zoom multiplier must be greater than 0.");
 
-            builder.SetParameter(ResizeParameters.Zoom, multiplier.ToString());
+            builder.SetParameter(ResizeCommands.Zoom, multiplier.ToString());
             return this;
         }
 
         /// <summary>
         /// Resize commands see http://imageresizing.net/docs/reference
         /// </summary>
-        private static class ResizeParameters
+        private static class ResizeCommands
         {
             internal const string Width = "width";
             internal const string Height = "height";

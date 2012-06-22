@@ -14,7 +14,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public TransformExpression AutoRotate()
         {
-            builder.SetParameter(TransformParameters.AutoRotate, true.ToString().ToLowerInvariant());
+            builder.SetParameter(TransformCommands.AutoRotate, true.ToString().ToLowerInvariant());
             return this;
         }
 
@@ -24,7 +24,7 @@ namespace ImageResizer.FluentExtensions
         /// <param name="rotateType">The type of rotation to perform</param>
         public TransformExpression Rotate(RotateType rotateType)
         {
-            builder.SetParameter(TransformParameters.RotateInterval, ((int)rotateType).ToString());
+            builder.SetParameter(TransformCommands.RotateInterval, ((int)rotateType).ToString());
             return this;
         }
         
@@ -38,7 +38,7 @@ namespace ImageResizer.FluentExtensions
             if (degrees < 0)
                 throw new ArgumentException("The angle can not be negative");
 
-            builder.SetParameter(TransformParameters.RotateDegrees, degrees.ToString());
+            builder.SetParameter(TransformCommands.RotateDegrees, degrees.ToString());
             return this;
         }
 
@@ -47,7 +47,7 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public TransformExpression FlipBefore(FlipType flipType)
         {
-            builder.SetParameter(TransformParameters.FlipBefore, flipType.ToString().ToLowerInvariant());
+            builder.SetParameter(TransformCommands.FlipBefore, flipType.ToString().ToLowerInvariant());
             return this;
         }
 
@@ -56,14 +56,14 @@ namespace ImageResizer.FluentExtensions
         /// </summary>
         public TransformExpression FlipAfter(FlipType flipType)
         {
-            builder.SetParameter(TransformParameters.FlipAfter, flipType.ToString().ToLowerInvariant());
+            builder.SetParameter(TransformCommands.FlipAfter, flipType.ToString().ToLowerInvariant());
             return this;
         }
 
         /// <summary>
         /// Transform commands see http://imageresizing.net/docs/reference
         /// </summary>
-        private static class TransformParameters
+        private static class TransformCommands
         {
             internal const string AutoRotate = "autorotate";
             internal const string RotateInterval = "srotate";
