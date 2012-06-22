@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AzureExtensionTests.cs" />
     <Compile Include="GradientExpressionTests.cs" />
+    <Compile Include="RemoteExtensionsTests.cs" />
     <Compile Include="SimpleFiltersExpressionTests.cs" />
     <Compile Include="ImageUrlBuilderSpecs.cs" />
     <Compile Include="OutputExpressionTests.cs" />

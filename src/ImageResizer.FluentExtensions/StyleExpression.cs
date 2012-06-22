@@ -102,6 +102,25 @@ namespace ImageResizer.FluentExtensions
         }
 
         /// <summary>
+        /// Adds a drop shadow to the image. Requires the drop shadow plugin.
+        /// For more information see http://imageresizing.net/plugins/dropshadow.
+        /// </summary>
+        /// <param name="shadowWidth">The desired shadow width in pixels. <example>1</example></param>
+        /// <param name="shadowColor">Configure the shade and opacity of the drop-shadow <example>black|rrggbbaa</example></param>
+        public DropShadowExpression DropShadow(int shadowWidth, string shadowColor)
+        {
+            if (shadowWidth < 1)
+                throw new ArgumentException("Shadow Width must be greater than 0.");
+
+            if (string.IsNullOrEmpty(shadowColor))
+                throw new ArgumentNullException("shadowColor");
+
+            builder.SetParameter(StyleCommands.ShadowWidth, shadowWidth.ToString());
+            builder.SetParameter(StyleCommands.ShadowColor, shadowColor);
+            return new DropShadowExpression(builder);
+        }
+
+        /// <summary>
         /// Styling commands see http://imageresizing.net/docs/reference
         /// </summary>
         private static class StyleCommands
@@ -112,6 +131,8 @@ namespace ImageResizer.FluentExtensions
             internal const string BorderWidth = "borderWidth";
             internal const string BorderColor = "borderColor";
             internal const string Margin = "margin";
+            internal const string ShadowWidth = "shadowwidth";
+            internal const string ShadowColor = "shadowcolor";
         }
     }
 

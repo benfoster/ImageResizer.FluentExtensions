@@ -37,11 +37,15 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="ImageResizer">
-      <HintPath>..\packages\ImageResizer.3.1.5\lib\ImageResizer.dll</HintPath>
+    <Reference Include="ImageResizer, Version=3.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\ImageResizer.3.2.2\lib\ImageResizer.dll</HintPath>
     </Reference>
     <Reference Include="ImageResizer.Mvc">
       <HintPath>..\packages\ImageResizer.Mvc.3.1.5\lib\ImageResizer.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer.Plugins.RemoteReader">
+      <HintPath>..\..\packages\ImageResizer.Plugins.RemoteReader.3.2.2\lib\ImageResizer.Plugins.RemoteReader.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />

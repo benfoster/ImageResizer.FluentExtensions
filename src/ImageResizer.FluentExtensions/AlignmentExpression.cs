@@ -3,16 +3,14 @@ namespace ImageResizer.FluentExtensions
 {
     public class AlignmentExpression : ResizeExpression
     {
-        internal AlignmentExpression(ImageUrlBuilder builder) : base(builder)
-        {
-        }
+        internal AlignmentExpression(ImageUrlBuilder builder) : base(builder) { }
 
         /// <summary>
         /// Determines how to anchor the image when padding or cropping
         /// </summary>
         /// <param name="anchorPoint">The position of the anchor point</param>
         /// <returns></returns>
-        public AlignmentExpression Anchor(AnchorPoint anchorPoint)
+        public ResizeExpression Anchor(AnchorPoint anchorPoint)
         {
             builder.SetParameter(AlignmentCommands.Anchor, anchorPoint.ToString().ToLowerInvariant());
             return this;

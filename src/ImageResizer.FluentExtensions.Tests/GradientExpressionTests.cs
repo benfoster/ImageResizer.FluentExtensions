@@ -12,11 +12,11 @@ namespace ImageResizer.FluentExtensions.Tests
         {
             builder = new ImageUrlBuilder();
         }
-        
+
         [Test]
         public void Gradient_Dimensions()
         {
-            builder.Gradient(img => img.Width(200).Height(100)).BuildUrl("image.jpg")
+            builder.Gradient(img => img.Dimensions(200, 100)).BuildUrl("image.jpg")
                 .ShouldEqual("image.jpg?width=200&height=100");
         }
 
@@ -30,7 +30,7 @@ namespace ImageResizer.FluentExtensions.Tests
         [Test]
         public void Gradient_Dimensions_Colors_Angle()
         {
-            builder.Gradient(img => img.Width(200).Height(100).Colors("red", "black").Angle(90)).BuildUrl("image.jpg")
+            builder.Gradient(img => img.Dimensions(200, 100).Colors("red", "black").Angle(90)).BuildUrl("image.jpg")
                 .ShouldEqual("image.jpg?width=200&height=100&color1=red&color2=black&angle=90");
         }
     }

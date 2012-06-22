@@ -44,5 +44,13 @@
 <h4>Using image url modifiers (Azure)</h4>
 
 <p>
-    @Url.ImageUrl("~/images/image.jpg", builder).FromAzure()
+    @Url.ImageUrl("~/images/image.jpg", builder.FromAzure())
 </p>
+
+<h4>Using drop shadow plugin</h4>
+
+@Html.BuildImage("~/images/image.jpg", x => x.Resize(img => img.Height(200)).Style(img => img.DropShadow(10, "darkgray")))
+
+<h4>Remote Url</h4>
+
+@Html.BuildImage("http://img.imageresizing.net/utah2.jpg", x => x.Resize(img => img.Width(200)).FromRemote())

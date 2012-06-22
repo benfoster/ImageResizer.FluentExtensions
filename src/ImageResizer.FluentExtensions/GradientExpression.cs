@@ -11,27 +11,18 @@ namespace ImageResizer.FluentExtensions
         public GradientExpression(ImageUrlBuilder builder) : base(builder) { }
         
         /// <summary>
-        /// Sets the width of the gradient PNG.
+        /// Sets the dimensions of the gradient PNG.
         /// </summary>
         /// <param name="width">The desired width in pixels.</param>
-        public GradientExpression Width(int width)
+        /// <param name="height">The desired height in pixels.</param>
+        public GradientExpression Dimensions(int width, int height)
         {
             if (width <= 0)
                 throw new ArgumentException("Width must be greater than 0.");
-
-            builder.SetParameter(GradientCommands.Width, width.ToString());
-            return this;
-        }
-
-        /// <summary>
-        /// Sets the height of the gradient PNG.
-        /// </summary>
-        /// <param name="height">The desired height in pixels.</param>
-        public GradientExpression Height(int height)
-        {
             if (height <= 0)
                 throw new ArgumentException("Height must be greater than 0.");
 
+            builder.SetParameter(GradientCommands.Width, width.ToString());
             builder.SetParameter(GradientCommands.Height, height.ToString());
             return this;
         }

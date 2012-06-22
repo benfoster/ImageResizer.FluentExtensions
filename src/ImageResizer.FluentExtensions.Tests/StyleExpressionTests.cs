@@ -65,5 +65,12 @@ namespace ImageResizer.FluentExtensions.Tests
             builder.Style(img => img.Margin(10, 5, 10, 5)).BuildUrl("image.jpg")
                 .ShouldEqual("image.jpg?margin=10,5,10,5".Replace(",", "%2c")); // url encoded
         }
+
+        [Test]
+        public void Style_Drop_Shadow()
+        {
+            builder.Style(img => img.DropShadow(10, "black").Offset(5, 5)).BuildUrl("image.jpg")
+                .ShouldEqual("image.jpg?shadowwidth=10&shadowcolor=black&shadowoffset=5,5".Replace(",", "%2c"));
+        }
     }
 }
