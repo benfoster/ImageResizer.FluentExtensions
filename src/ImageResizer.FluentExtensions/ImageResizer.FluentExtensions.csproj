@@ -50,6 +50,7 @@
     <Compile Include="GradientExpression.cs" />
     <Compile Include="ImageUrlBuilder.cs" />
     <Compile Include="ImageUrlBuilderExpression.cs" />
+    <Compile Include="ModifierExtensions.cs" />
     <Compile Include="NumberExtensions.cs" />
     <Compile Include="OutputExpression.cs" />
     <Compile Include="PathUtils.cs" />
