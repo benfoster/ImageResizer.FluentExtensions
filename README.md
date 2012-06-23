@@ -76,6 +76,10 @@ Notice that both take in a delegate for configuring the ImageUrlBuilder.
 
 We've designed `ImageUrlBuilder` to be reusable. A common scenario would be to loop through a collection of image paths and display the image. Since you probably wan't all your images to look the same, you should configure your builder and reuse it for every image. Both the UrlHelper and HtmlHelper extension methods have overloads for doing this:
 
+	@{
+		var builder = new ImageUrlBuilder().Resize(img => img.Dimensions(200, 300));
+	}
+	
 	<ul>
 		@foreach (var image in Model.Images) {
 			<li><img src="@Url.ImageUrl(image, builder)" alt=""/></li>
