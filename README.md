@@ -17,7 +17,9 @@ Available on NuGet:
 
 Licensed under the MIT License.
 
-### Using the Fluent API
+## Using the Fluent API
+
+The Fluent API is easily discoverable, well documented and doesn't require knowledge of the Image Resizer URL API.
 
 The core ImageResizer functionality is grouped logically into the following expressions:
 
@@ -37,9 +39,7 @@ We've also created extensions for the following ImageResizer plugins:
 - Image404 > `builder.Image404(...)`
 - Presets > `builder.ApplyPresets(...)`
 
-The Fluent API is easily discoverable and well documented so you don't have to keep referring back to the ImageResizer website to use it.
-
-The two main components of the API are **Image Url Builder Expressions** and **Url Modifiers**. 
+The two main components of the API are **Builder Expressions** and **Url Modifiers**. 
 
 #### Builder Expressions
 
@@ -113,7 +113,9 @@ You can also apply your own modifiers by simply passing a string function to the
 					.AddModifier(url => url.ToLower())
 					.BuildUrl("image.jpg");
 
-#### Changes in 1.0.0.4
+## Release Notes
+
+### Changes in 1.0.0.4
 
  - ImageBuilder renamed to ImageUrlBuilder
  - Build() method renamed to BuildUrl e.g.
