@@ -37,6 +37,23 @@ namespace ImageResizer.FluentExtensions.Tests
             }
         }
 
+        [Subject("Clearing modifiers")]
+        public class Clearing_modifiers
+        {
+            public class When_the_url_builder_has_modifiers
+            {
+                Establish ctx = () => {
+                    builder = new ImageUrlBuilder().AddModifier(s => s.ToUpper());
+                };
+
+                Because of = ()
+                    => builder.ClearModifiers();
+
+                It Should_remove_all_modifiers = ()
+                    => builder.BuildUrl("someimage.jpg").ShouldEqual("someimage.jpg"); // url not modified by modifiers
+            }
+        }
+
         [Subject("Setting parameters")]
         public class Setting_parameters
         {

@@ -34,6 +34,14 @@ namespace ImageResizer.FluentExtensions
         }
 
         /// <summary>
+        /// Clears all URL modifiers from this ImageUrlBuilder instance.
+        /// </summary>
+        public void ClearModifiers()
+        {
+            modifiers.Clear();
+        }
+
+        /// <summary>
         /// Builds an ImageResizer image URL using the current configuration and assigned modifiers
         /// </summary>
         /// <param name="imagePath">The source path of the image</param>
@@ -64,7 +72,6 @@ namespace ImageResizer.FluentExtensions
             configuration.Set(parameterName, parameterValue);
             return this;
         }
-
 
         /// <summary>
         /// Applies the current configuration to <paramref name="imagePath"/>
