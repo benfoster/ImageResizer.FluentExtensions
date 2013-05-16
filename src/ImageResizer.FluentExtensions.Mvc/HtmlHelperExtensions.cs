@@ -27,13 +27,13 @@ namespace ImageResizer.FluentExtensions.Mvc
         public static MvcHtmlString BuildImage(this HtmlHelper html, string src, Action<ImageUrlBuilder> configure, string alternateText = "", object htmlAttributes = null)
         {
             var imageUrl = html.CreateUrlHelper().ImageUrl(src, configure);
-            return html.Image(imageUrl.ToString());
+            return html.Image(imageUrl, alternateText, htmlAttributes);
         }
 
         public static MvcHtmlString BuildImage(this HtmlHelper html, string src, ImageUrlBuilder builder, string alternateText = "", object htmlAttributes = null)
         {
             var imageUrl = html.CreateUrlHelper().ImageUrl(src, builder);
-            return html.Image(imageUrl.ToString());
+            return html.Image(imageUrl, alternateText, htmlAttributes);
         }
 
         private static UrlHelper CreateUrlHelper(this HtmlHelper html)
