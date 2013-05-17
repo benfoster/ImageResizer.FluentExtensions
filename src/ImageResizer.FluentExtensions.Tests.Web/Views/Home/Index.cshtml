@@ -14,6 +14,9 @@
 }
 <h2>Index</h2>
 
+<h4>Alternate text and HTML attributes passed through</h4>
+@Html.BuildImage("~/images/image.jpg", x => x.Resize(img => img.MaxHeight(100)), "Alternate Text", new { title = "Title Text" })
+
 <h4>Max Height</h4>
 @Html.BuildImage("~/images/image.jpg", x => x.Resize(img => img.MaxHeight(200)).Output(img => img.Quality(90)))
 
@@ -35,7 +38,7 @@
                                                 .Style(img => img.BorderWidth(5).BorderColor("000000")))
 
 <h4>Using existing builder</h4>
-@Html.BuildImage("~/images/image.jpg", builder)
+@Html.BuildImage("~/images/image.jpg", builder, "Alternate Text", new { title = "Title Text" })
 
 <h4>Using Url helper extension</h4>
 
