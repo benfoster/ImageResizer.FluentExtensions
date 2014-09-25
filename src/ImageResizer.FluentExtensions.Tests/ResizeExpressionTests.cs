@@ -49,6 +49,28 @@ namespace ImageResizer.FluentExtensions.Tests
         }
 
         [Test]
+        public void Resize_Crop()
+        {
+            builder.Resize(img => img.Crop(1,2,3,4)).BuildUrl("image.jpg")
+                .ShouldEqual("image.jpg?crop=(1,2,3,4)");
+        }
+
+        [Test]
+        public void Resize_Crop_with_Rectange()
+        {
+            System.Drawing.Rectangle rect = new System.Drawing.Rectangle(1, 1, 10, 10);
+            builder.Resize(img => img.Crop(rect)).BuildUrl("image.jpg")
+                .ShouldEqual("image.jpg?crop=(1,1,11,11)");
+        }
+
+        [Test]
+        public void Resize_Crop_with_alignment()
+        {
+            builder.Resize(img => img.Crop(1, 2, 3, 4).Anchor(AnchorPoint.TopCenter)).BuildUrl("image.jpg")
+                .ShouldEqual("image.jpg?crop=(1,2,3,4)&anchor=topcenter");
+        }
+
+        [Test]
         public void Resize_mode_Max()
         {
             builder.Resize(img => img.Dimensions(100, 100).Max()).BuildUrl("image.jpg")

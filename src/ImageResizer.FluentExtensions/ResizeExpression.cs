@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+
 namespace ImageResizer.FluentExtensions
 {
     /// <summary>
@@ -106,14 +108,28 @@ namespace ImageResizer.FluentExtensions
         /// <param name="y2">y coordinate of the bottom-right corner of the original image.</param>
         public AlignmentExpression Crop(int x1, int y1, int x2, int y2)
         {
-            if (x1 >= x2)
+            if (x1 >= x2 && (x2 > 0 || x1 < 0))
                 throw new ArgumentException("x1 must be greater than x2.");
 
-            if (y1 >= y2)
+            if (y1 >= y2 && (y2 > 0 || y1 < 0))
                 throw new ArgumentException("y1 must be greater than y2.");
 
-            builder.SetParameter(ResizeCommands.FitModeCrop, string.Format("{0},{1},{2},{3}", x1, y1, x2, y2));
+            builder.SetParameter(ResizeCommands.FitModeCrop, string.Format("({0},{1},{2},{3})", x1, y1, x2, y2));
             return new AlignmentExpression(this.builder);
+        }
+
+        /// <summary>
+        /// Crop the image to the specified rectangle on the source image.
+        /// </summary>
+        /// <param name="rect">The rectangle that represents the coordinates of the crop relative to the original image.</param>
+        public AlignmentExpression Crop(Rectangle rect)
+        {
+            if (rect.Width <= 0)
+                throw new ArgumentException("The crop width must be greater than 0.");
+            if (rect.Height <= 0)
+                throw new ArgumentException("The crop height must be greater than 0.");
+
+            return Crop(rect.Left, rect.Top, rect.Right, rect.Bottom);
         }
 
         /// <summary>
