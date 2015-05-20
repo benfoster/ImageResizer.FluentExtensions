@@ -98,6 +98,25 @@ namespace ImageResizer.FluentExtensions
         }
 
         /// <summary>
+        /// Crop the image to the specified rectangle on the source image.
+        /// </summary>
+        /// <param name="x1">x coordinate of the top-left corner of the original image.</param>
+        /// <param name="y1">y coordinate of the top-left corner of the original image.</param>
+        /// <param name="x2">x coordinate of the bottom-right corner of the original image.</param>
+        /// <param name="y2">y coordinate of the bottom-right corner of the original image.</param>
+        public AlignmentExpression Crop(int x1, int y1, int x2, int y2)
+        {
+            if (x1 >= x2)
+                throw new ArgumentException("x1 must be greater than x2.");
+
+            if (y1 >= y2)
+                throw new ArgumentException("y1 must be greater than y2.");
+
+            builder.SetParameter(ResizeCommands.FitModeCrop, string.Format("{0},{1},{2},{3}", x1, y1, x2, y2));
+            return new AlignmentExpression(this.builder);
+        }
+
+        /// <summary>
         /// Sets the fit mode to Stretch. Stretches the image, losing aspect ratio
         /// </summary>
         public ResizeExpression Stretch()
