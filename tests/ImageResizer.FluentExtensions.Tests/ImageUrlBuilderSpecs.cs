@@ -201,6 +201,15 @@ namespace ImageResizer.FluentExtensions.Tests
                 It Should_build_the_url_and_apply_the_modifiers = ()
                     => result.ShouldEqual("/cloud/image.jpg?width=200&height=100&mode=crop&anchor=topleft&flip=x&srotate=180&paddingWidth=10&paddingColor=000000&format=png&quality=90");
             }
+
+            public class When_a_configurarion_exists_and_the_image_path_already_contains_a_query
+            {
+                Establish ctx = () => builder = new ImageUrlBuilder();
+
+                Because of = () => result = builder.Resize(img => img.Dimensions(100, 100)).BuildUrl("somefile.jpg?x=123&y=456");
+
+                It Should_preserve_the_original_query = () => result.ShouldEqual("somefile.jpg?x=123&y=456&width=100&height=100");
+            }
         }
     }
 }
