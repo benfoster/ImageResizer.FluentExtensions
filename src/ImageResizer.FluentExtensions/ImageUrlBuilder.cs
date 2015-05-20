@@ -87,7 +87,7 @@ namespace ImageResizer.FluentExtensions
                 // Preserve existing querystring
                 if (queryIndex > -1) 
                 {
-                    pathWithoutQuery = pathWithoutQuery.Substring(0, imagePath.Length - queryIndex);
+                    pathWithoutQuery = pathWithoutQuery.Substring(0,  queryIndex);
                     query = HttpUtility.ParseQueryString(imagePath.Substring(queryIndex));
                     
                     // Now append the resizer configuration
