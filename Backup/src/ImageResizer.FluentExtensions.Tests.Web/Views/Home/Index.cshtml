@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Index";
+
+    var builder = new ImageUrlBuilder()
+        .Resize(img => img.Dimensions(400, 300).Crop())
+        .Transform(img => img.FlipAfter(FlipType.X))
+        .Style(img => img.PaddingWidth(10)
+                            .PaddingColor("FF0066")
+                            .Margin(20)
+                            .BackgroundColor("000000"))
+        .Output(img => img.Quality(90)
+                            .Format(OutputFormat.Png));
+        
+}
+<h2>Index</h2>
+
+<h4>Max Height</h4>
+@Html.BuildImage("~/images/image.jpg", x => x.Resize(img => img.MaxHeight(200)).Output(img => img.Quality(90)))
+
+<h4>Max Width</h4>
+@Html.BuildImage("~/images/image.jpg", x => x.Resize(img => img.MaxWidth(200)))
+
+<h4>Fixed width and height with background color</h4>
+@Html.BuildImage("~/images/image.jpg", x => x.Resize(img => img.Dimensions(200, 200)).Style(img => img.BackgroundColor("000000")))
+
+<h4>Cropped image</h4>
+@Html.BuildImage("~/images/image.jpg", x => x.Resize(img => img.Dimensions(200, 200).Crop().Anchor(AnchorPoint.BottomRight)))
+
+<h4>Flipped</h4>
+@Html.BuildImage("~/images/image.jpg", x => x.Resize(img => img.MaxHeight(200)).Transform(img => img.FlipAfter(FlipType.XY)))
+
+<h4>Rotated</h4>
+@Html.BuildImage("~/images/image.jpg", x => x.Resize(img => img.Dimensions(200, 200))
+                                                .Transform(img => img.Rotate(RotateType.Rotate90))
+                                                .Style(img => img.BorderWidth(5).BorderColor("000000")))
+
+<h4>Using existing builder</h4>
+@Html.BuildImage("~/images/image.jpg", builder)
+
+<h4>Using Url helper extension</h4>
+
+@Html.Image(Url.ImageUrl("~/images/image.jpg", builder).ToString());
+
+<h4>Using image url modifiers (Azure)</h4>
+
+<p>
+    @Url.ImageUrl("~/images/image.jpg", builder.FromAzure())
+</p>
+
+<h4>Using drop shadow plugin</h4>
+
+@Html.BuildImage("~/images/image.jpg", x => x.Resize(img => img.Height(200)).Style(img => img.DropShadow(10, "darkgray")))
+
+<h4>Remote Url</h4>
+
+@Html.BuildImage("http://img.imageresizing.net/utah2.jpg", x => x.Resize(img => img.Width(200)).FromRemote())
