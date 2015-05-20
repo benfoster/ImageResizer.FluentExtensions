@@ -13,7 +13,7 @@
     <copyright>Copyright © Ben Foster 2015</copyright>
     <tags>ImageResizer Resizer</tags>
     <dependencies>
-      <dependency id="ImageResizer.FluentExtensions" version="1.0.0.5" />
+      <dependency id="ImageResizer.FluentExtensions" version="1.0.0.6" />
     </dependencies>
   </metadata>
 </package>
