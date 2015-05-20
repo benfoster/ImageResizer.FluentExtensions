@@ -80,10 +80,25 @@ namespace ImageResizer.FluentExtensions
         {
             if (configuration.Count > 0)
             {
-                var parameters = configuration.AllKeys
-                    .Select(param => string.Concat(param, "=", HttpUtility.UrlEncode(configuration[param])));
+                var pathWithoutQuery = imagePath;
+                var queryIndex = pathWithoutQuery.IndexOf('?');
+                var query = configuration;
 
-                imagePath = string.Format("{0}?{1}", imagePath, string.Join("&", parameters));
+                // Preserve existing querystring
+                if (queryIndex > -1) 
+                {
+                    pathWithoutQuery = pathWithoutQuery.Substring(0,  queryIndex);
+                    query = HttpUtility.ParseQueryString(imagePath.Substring(queryIndex));
+                    
+                    // Now append the resizer configuration
+                    query.Add(configuration);
+                }
+
+                // Generate the Resizer querystring
+                var parameters = query.AllKeys
+                    .Select(param => string.Concat(param, "=", HttpUtility.UrlEncode(query[param])));
+
+                imagePath = string.Format("{0}?{1}", pathWithoutQuery, string.Join("&", parameters));
             }
 
             return GetModifiedPath(imagePath);

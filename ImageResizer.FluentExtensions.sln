@@ -1,24 +1,31 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{16881C95-E325-4AF5-BA38-048BB9649722}"
+	ProjectSection(SolutionItems) = preProject
+		src\CommonAssemblyInfo.cs = src\CommonAssemblyInfo.cs
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions", "src\ImageResizer.FluentExtensions\ImageResizer.FluentExtensions.csproj", "{C3811C42-0118-443B-B0EB-FA82129B8C69}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions.Tests", "src\ImageResizer.FluentExtensions.Tests\ImageResizer.FluentExtensions.Tests.csproj", "{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions.Tests.Web", "src\ImageResizer.FluentExtensions.Tests.Web\ImageResizer.FluentExtensions.Tests.Web.csproj", "{13B6E47F-26DE-431E-BAF7-35BAC532A98D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions.Mvc", "src\ImageResizer.FluentExtensions.Mvc\ImageResizer.FluentExtensions.Mvc.csproj", "{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{96450540-386F-463B-9905-C496A5440C25}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9F0C60F5-B7C1-4814-9EF6-8A59A9EF3457}"
 	ProjectSection(SolutionItems) = preProject
-		nuget\ImageResizer.FluentExtensions.Mvc.nuspec = nuget\ImageResizer.FluentExtensions.Mvc.nuspec
-		nuget\ImageResizer.FluentExtensions.nuspec = nuget\ImageResizer.FluentExtensions.nuspec
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{16881C95-E325-4AF5-BA38-048BB9649722}"
-	ProjectSection(SolutionItems) = preProject
-		src\Version.cs = src\Version.cs
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{570F7223-93DA-48AE-97A5-39334FC923FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7EDB944C-12CD-4561-A1DF-0D416D583C3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions.Tests.Web", "samples\ImageResizer.FluentExtensions.Tests.Web\ImageResizer.FluentExtensions.Tests.Web.csproj", "{13B6E47F-26DE-431E-BAF7-35BAC532A98D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageResizer.FluentExtensions.Tests", "tests\ImageResizer.FluentExtensions.Tests\ImageResizer.FluentExtensions.Tests.csproj", "{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,20 +37,24 @@ Global
 		{C3811C42-0118-443B-B0EB-FA82129B8C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3811C42-0118-443B-B0EB-FA82129B8C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3811C42-0118-443B-B0EB-FA82129B8C69}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C247E1B-9E7C-4C9B-A039-C5DBB3009179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13B6E47F-26DE-431E-BAF7-35BAC532A98D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13B6E47F-26DE-431E-BAF7-35BAC532A98D} = {570F7223-93DA-48AE-97A5-39334FC923FF}
+		{1ABDEC38-BA6A-4D24-A324-0C0D790413C8} = {7EDB944C-12CD-4561-A1DF-0D416D583C3D}
 	EndGlobalSection
 EndGlobal
