@@ -117,20 +117,3 @@ You can also apply your own modifiers by simply passing a string function to the
 					.AddModifier(url => url.ToLower())
 					.BuildUrl("image.jpg");
 
-## Release Notes
-
-### Changes in 1.0.0.4
-
- - ImageBuilder renamed to ImageUrlBuilder
- - Build() method renamed to BuildUrl e.g.
-
-	 	new ImageUrlBuilder().BuildUrl("image.jpg")
-
- - New UrlHelper extension methods in ImageResizer.FluentExtensions.Mvc
-	
-		// passing in a builder expression
-		@Url.ImageUrl("~/image.jpg", builder => builder.Resize(img => img.Width(200)))  
-
-		// passing in an existing builder
-		@Url.ImageUrl("~/image.jpg", builder) 
-
