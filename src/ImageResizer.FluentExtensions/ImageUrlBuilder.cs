@@ -75,7 +75,15 @@ namespace ImageResizer.FluentExtensions
             if (string.IsNullOrEmpty(parameterValue))
                 throw new ArgumentNullException("parameterValue");
 
-            configuration[parameterName] = parameterValue;
+            if (configuration.ContainsKey(parameterName))
+            {
+                configuration[parameterName] = parameterValue;
+            }
+            else
+            {
+                configuration.Add(parameterName, parameterValue);
+            }
+
             return this;
         }
 
