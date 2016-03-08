@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
+
+#if PORTABLE
+using NameValueCollection = ImageResizer.FluentExtensions.Portable.HttpValueCollection;
+using HttpUtility = ImageResizer.FluentExtensions.Portable.HttpUtility;
+#else
+using System.Collections.Specialized;
 using System.Web;
+#endif
 
 namespace ImageResizer.FluentExtensions
 {
@@ -70,6 +76,7 @@ namespace ImageResizer.FluentExtensions
                 throw new ArgumentNullException("parameterValue");
 
             configuration.Set(parameterName, parameterValue);
+
             return this;
         }
 
