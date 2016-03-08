@@ -94,6 +94,18 @@ namespace ImageResizer.FluentExtensions.Portable
             }
         }
 
+        public void Set(string key, string value)
+        {
+            if (ContainsKey(key))
+            {
+                this[key] = value;
+            }
+            else
+            {
+                Add(key, value);
+            }
+        }
+
         public bool ContainsKey(string key)
         {
             return this.Any(x => string.Equals(x.Key, key, StringComparison.OrdinalIgnoreCase));
